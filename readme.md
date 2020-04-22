@@ -1,5 +1,5 @@
 ﻿Gulp frontend template v2.2
-===========================
+============================
 
 This template is needed to create front-end of sites using Gulp 4, Sass, Font-awesome, jQuery and Bootstrap.
 The template uses the folder for the source code (/src) and the folder for production files (/build),
@@ -7,28 +7,28 @@ in /build folder files are automatically compiled.
 
 Implemented Rsync plugin, which allows you to quickly deploy finished filesv from /build to the server.
 
-INSTALLATION
+Installation
 ------------
 
-1. You can download repository [from GitHub](https://github.com/) or clone, if you use git an your computer:
-
-      $ git clone https://github.com/
+1. You can download repository [https://github.com/Chopas11/Frontend_Template_v2.2.git](https://github.com/) or clone, if you use git an your computer:
+      
+        $ git clone https://github.com/Chopas11/Frontend_Template_v2.2.git
     
 2. Install NodeJS 12.x on your computer, if you 've not done it before.
 3. Install all npm packages:
-
-      $ npm install
+      
+        $ npm install
 
 
 4. Customize the template according to the Customize instructions below.
 5. Start template:
-
-      $ gulp
+      
+        $ gulp
 
 
 6. To deploy finished files on server, follow 5 step of Customize Instruction and run command:
-
-      $ gulp deploy
+      
+        $ gulp deploy
 
 
 Customize Instruction:
@@ -38,7 +38,7 @@ Customize Instruction:
 
 2. Set up the necessary project variables in the app/sass/_config.sass file
 
-3. Install the necessary libraries through npm: 
+3. Install the necessary libraries through npm:
       
         $ npm install i --save-dev library_name
       
