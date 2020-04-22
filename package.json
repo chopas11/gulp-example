@@ -1,0 +1,29 @@
+{
+	"name": "frontend_template_v2.2",
+	"version": "2.2.0",
+	"description": "Start Gulp 4 Template to create frontend part of projects",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Chopas11",
+	"license": "ISC",
+	"devDependencies": {
+		"browser-sync": "^2.26.7",
+		"del": "^5.1.0",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^7.0.1",
+		"gulp-clean-css": "^4.2.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-imagemin": "^7.1.0",
+		"gulp-newer": "^1.4.0",
+		"gulp-rsync": "0.0.8",
+		"gulp-sass": "^4.0.2",
+		"gulp-uglify-es": "^2.0.0"
+	},
+	"dependencies": {
+		"bootstrap": "^4.4.1",
+		"font-awesome": "^4.7.0",
+		"jquery": "^3.4.1"
+	}
+}
