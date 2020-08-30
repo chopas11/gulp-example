@@ -17,7 +17,7 @@ const del          = require('del');														// del files
 
 function browsersync() {
 	browserSync.init({
-		server: { baseDir: 'build' },
+		server: { baseDir: 'build/' },
 		notify: false,
 		// online: false, // Work offline without internet connection
 	})
@@ -80,11 +80,11 @@ function deploy() {																		// Rsync
 }
 
 function startwatch() {	
-	watch('src/*.html', parallel('html'));
-	watch('src/' + preprocessor + '/**/*', parallel('styles'));
-	watch(['src/**/*.js'], parallel('scripts'));
-	watch(['src/**/*.{' + imageswatch + '}'], parallel('images'));
-	watch(['src/**/*.{' + fileswatch + '}', 'build/*.html']).on('change', browserSync.reload);
+	watch('src/*.html', {usePolling: true}, html);
+	watch('src/' + preprocessor + '/**/*', {usePolling: true}, styles);
+	watch('src/**/*.js', {usePolling: true}, scripts);
+	watch('src/**/*.{' + imageswatch + '}', {usePolling: true}, images);
+	watch('src/**/*.{' + fileswatch + '}', {usePolling: true}).on('change', browserSync.reload);
 }
 
 exports.browsersync = browsersync;
