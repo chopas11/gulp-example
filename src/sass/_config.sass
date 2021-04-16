@@ -1,16 +1,15 @@
 //------------------------------<Libraries Including>-------------------------------//
-//@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' 						// Optional Bootstrap Grid
+@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' 						// Optional Bootstrap Grid
 //@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss'					// Bootstrap Breakpoints mixin
 @import 'node_modules/bootstrap/scss/bootstrap-reboot.scss'							// Bootstrap Reboot collection
 @import 'node_modules/font-awesome/scss/font-awesome.scss' 							// Font-awesome
 
-//--------------------------------------<Vars>--------------------------------------//
+//-----------------------------------<Variables>------------------------------------//
 $font: Firasans, sans-serif 														// Main font
-$accent: #0D98BA																// Accent color in page
+$accent: #0D98BA																	// Accent color in page
 $fontsize: 18px 																	// Default size for text
-$textcolor: #576369 															// Text color
+$textcolor: #3c4347 																// Text color
 $grid-gutter-width: 20px															// Margin in grid tabs
-$gutter: $grid-gutter-width
 $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)				// Media breakpoint for adaptivity
 
 //---------------------------------<Fonts Including>--------------------------------//
@@ -27,7 +26,7 @@ $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)				// Me
 @include font('Firasans', italic, 400, '../fonts/firasans-webfont/firasans-italic-webfont.woff2')
 @include font('Firasans', italic, 700, '../fonts/firasans-webfont/firasans-bolditalic-webfont.woff2')
 
-//---------------------------------<General Styles>--------------------------- ------//
+//---------------------------------<General Styles>---------------------------------//
 ::selection
 	background-color: $accent
 	color: #fff

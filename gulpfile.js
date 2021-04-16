@@ -1,10 +1,20 @@
+/*
+gulp-example
+
+Version
+
+Author
+
+*/
+
+//-------------------------------------<Variables>------------------------------------------//
 let preprocessor = 'sass'; 																	// Preprocessor 
 let fileswatch   = 'html,htm,txt,json,md,woff2'; 											// List of files extensions for watching & hard reload (comma separated)
 let imageswatch  = 'jpg,jpeg,png,webp,svg'; 												// List of images extensions for watching & compression (comma separated)
 
 //---------------------------------------<NodeJS>-------------------------------------------//
 const { src, dest, parallel, series, watch } = require('gulp');								// Gulp
-const sass         = require('gulp-sass');													//  Sass
+const sass         = require('gulp-sass');													// Sass
 const cleancss     = require('gulp-clean-css');												// Clean css
 const concat       = require('gulp-concat');												// Concat files
 const browserSync  = require('browser-sync').create();										// Concat files
@@ -15,6 +25,7 @@ const newer        = require('gulp-newer');													// Minification images t
 const rsync        = require('gulp-rsync');													// Deploy build files
 const del          = require('del');														// del files
 
+//-------------------------------------<LiveReload>-----------------------------------------//
 function browsersync() {
 	browserSync.init({
 		server: { baseDir: 'build/' },
@@ -23,11 +34,13 @@ function browsersync() {
 	})
 }
 
+//----------------------------------------<Html>--------------------------------------------//
 function html() {
 	return src('src/*.html')
 	.pipe(dest('build'))
 }
 
+//---------------------------------------<Styles>-------------------------------------------//
 function styles() {
 	return src('src/' + preprocessor + '/main.*')
 	.pipe(eval(preprocessor)())
@@ -38,9 +51,11 @@ function styles() {
 	.pipe(browserSync.stream())
 }
 
+//--------------------------------------<Scripts>-------------------------------------------//
 function scripts() {
 	return src([
-		//'node_modules/jquery/dist/jquery.min.js', 										// npm i --save jquery
+																							// Setup own js libraries and frameworks
+		'node_modules/jquery/dist/jquery.min.js', 											// npm i --save jquery
 		'src/js/app.js'
 		])
 	.pipe(concat('app.min.js'))
@@ -49,29 +64,28 @@ function scripts() {
 	.pipe(browserSync.stream())
 }
 
+//--------------------------------------<Images>--------------------------------------------//
 function images() {
-	return src('src/images/**/*')
+	return src('src/images/**/*')															// Minimize in future
 	.pipe(dest('build/images'))
 }
 
+//---------------------------------------<Fonts>--------------------------------------------//
 function fonts() {
 	return src('src/fonts/**/*.woff2')
 	.pipe(dest('build/fonts'))
 }
 
-function cleanimg() {
-	return del('build/images/dest/**/*', { force: true })
-}
-
-function deploy() {																		// Rsync
+//-----------------------------------<Rsync Function>---------------------------------------//
+function deploy() {
 	return src('build/')
 	.pipe(rsync({
-		root: 'build/',
-		hostname: 'user@server',
-		destination: '/var/www/html',
-		port: 22,
+		root: 'build/',																		// Deploy from "build" folder
+		hostname: 'user@server',															// User name for server
+		destination: '/var/www/html',														// Folder in server
+		port: 22,																			// Port to server access
 		// include: ['*.htaccess'], // Included files
-		exclude: ['**/Thumbs.db', '**/*.DS_Store', '**/*.html'], // Excluded files
+		exclude: ['**/Thumbs.db', '**/*.DS_Store', '**/*.html'], 							// Excluded files
 		recursive: true,
 		archive: true,
 		silent: false,
@@ -79,6 +93,7 @@ function deploy() {																		// Rsync
 	}))
 }
 
+//----------------------------------------<Watch>--------------------------------------------//
 function startwatch() {	
 	watch('src/*.html', {usePolling: true}, html);
 	watch('src/' + preprocessor + '/**/*', {usePolling: true}, styles);
@@ -93,6 +108,5 @@ exports.styles      = styles;
 exports.scripts     = scripts;
 exports.images      = images;
 exports.fonts      	= fonts;
-exports.cleanimg    = cleanimg;
 exports.deploy    	= deploy;
 exports.default     = parallel(html, styles, scripts, images, fonts, browsersync, startwatch);

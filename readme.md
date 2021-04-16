@@ -1,49 +1,40 @@
-﻿Gulp frontend template v2.2
-============================
+﻿Gulp frontend template
+======================
 
-This template is needed to create front-end of sites using Gulp 4, Sass, Font-awesome, jQuery and Bootstrap.
+Latest version: 2.3
+
 The template uses the folder for the source code (/src) and the folder for production files (/build),
 in /build folder files are automatically compiled.
-
-Implemented Rsync plugin, which allows you to quickly deploy finished filesv from /build to the server.
 
 Installation
 ------------
 
-1. You can download repository [https://github.com/Chopas11/Frontend_Template_v2.2.git](https://github.com/) or clone, if you use git an your computer:
+1. Download repository [gulp-example](https://github.com/Chopas11/gulp-example.git) or clone by command below:
       
-        $ git clone https://github.com/Chopas11/Frontend_Template_v2.2.git
+        $ git clone https://github.com/Chopas11/gulp-example.git
     
-2. Install NodeJS 12.x on your computer, if you 've not done it before.
+2. Install or update NodeJS 14.x on your computer;
 3. Install all npm packages:
       
-        $ npm install
+        $ npm i
 
+4. Install the desired font in the `src/fonts/yourfont-webfont` folder in **woff2** format and write it in the "Fonts Including" in the `src/sass/_config.sass`;
 
-4. Customize the template according to the Customize instructions below.
-5. Start template:
-      
-        $ gulp
+5. Set up the necessary project variables in the `src/sass/_config.sass`
 
-
-6. To deploy finished files on server, follow 5 step of Customize Instruction and run command:
-      
-        $ gulp deploy
-
-
-Customize Instruction:
-----------------------
-
-1. Install the desired font in the src/fonts/yourfont-webfont folder in woff2 format and write it in the "Fonts Including" section in the src/sass/_config.sass file (FontAwesome is already installed in the template)
-
-2. Set up the necessary project variables in the app/sass/_config.sass file
-
-3. Install the necessary libraries through npm:
+6. Install the necessary libraries through npm:
       
         $ npm install i --save-dev library_name
       
-Tnen, include css library in the "Libraries Including" section in the src/sass/_config.sass file (By default, jQuery and Bootstrap are already in the project, both are turned off), and JS library in the gulpfile.js file
+Tnen, include css library in the "Libraries Including" in the `src/sass/_config.sass` file, and JS library in the **gulpfile.js**;
 
-4. You can find the layout of src/index.html, Styles in the file src/sass/main.sass
+7. Insert info about server to deploy in function deploy() in file **gulpfile.js**;
 
-5. Insert info about server to deploy in function deploy() in file gulpfile.js
+8. Start template:
+      
+        $ gulp
+
+9. To deploy finished files on server, run command:
+      
+        $ gulp deploy
+
