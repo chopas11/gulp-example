@@ -1,19 +1,31 @@
-//------------------------------<Libraries Including>-------------------------------//
-@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' 						// Optional Bootstrap Grid
-//@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss'					// Bootstrap Breakpoints mixin
-@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss'							// Bootstrap Reboot collection
-@import 'node_modules/font-awesome/scss/font-awesome.scss' 							// Font-awesome
+//-------------------------------< Cass Libraries >--------------------------------//
+// Optional Bootstrap Grid
+@import 'node_modules/bootstrap/scss/bootstrap-grid.scss'
+// Bootstrap Breakpoints mixin					
+//@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss'
+// Bootstrap Breakpoints mixin
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss'
+// Bootstrap Reboot collection
+@import 'node_modules/font-awesome/scss/font-awesome.scss'
+// Font-awesome
 
-//-----------------------------------<Variables>------------------------------------//
-$font: Firasans, sans-serif 														// Main font
-$accent: #0D98BA																	// Accent color in page
-$fontsize: 18px 																	// Default size for text
-$textcolor: #3c4347 																// Text color
-$grid-gutter-width: 20px															// Margin in grid tabs
-$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)				// Media breakpoint for adaptivity
+//----------------------------------< Variables >-----------------------------------//
+// Main font
+$font: Firasans, sans-serif
+// Accent color in page
+$accent: #E84C50
+// Default size for text
+$fontsize: 18px
+// Text color
+$textcolor: #3c4347
+// Margin in grid tabs
+$grid-gutter-width: 20px
+// Media breakpoint for adaptivity
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
 
-//---------------------------------<Fonts Including>--------------------------------//
-@mixin font($fname, $fstyle, $fweight, $furl)										// Mixin for fonts
+//--------------------------------< Fonts Including >-------------------------------//
+// Mixin for fonts
+@mixin font($fname, $fstyle, $fweight, $furl, $format)
 	@font-face
 		font-family: $fname
 		font-style: $fstyle
@@ -21,12 +33,12 @@ $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)				// Me
 		font-display: swap
 		src: local($fname), url($furl) format('woff2')
 
-@include font('Firasans', normal, 400, '../fonts/firasans-webfont/firasans-regular-webfont.woff2')
-@include font('Firasans', bold, 700, '../fonts/firasans-webfont/firasans-bold-webfont.woff2')
-@include font('Firasans', italic, 400, '../fonts/firasans-webfont/firasans-italic-webfont.woff2')
-@include font('Firasans', italic, 700, '../fonts/firasans-webfont/firasans-bolditalic-webfont.woff2')
+@include font('Firasans', normal, 400, '../fonts/Firasans/Firasans-Regular.woff2', 'woff2')
+@include font('Firasans', bold, 700, '../fonts/Firasans/Firasans-Bold.woff2', 'woff2')
+@include font('Firasans', italic, 400, '../fonts/Firasans/Firasans-Italic.woff2', 'woff2')
+@include font('Firasans', italic, 700, '../fonts/Firasans/Firasans-BoldItalic.woff2', 'woff2')
 
-//---------------------------------<General Styles>---------------------------------//
+//--------------------------------< General Styles >--------------------------------//
 ::selection
 	background-color: $accent
 	color: #fff
